@@ -8,10 +8,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 
-var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(args); //It creates a WebApplicationBuilder object. 
 
 // Add services to the container.
-
+////builder.Services	Add things to the DI container (like DbContext, TokenService)
 builder.Services.AddApplicationServices(builder.Configuration);
 builder.Services.AddIdentityServices(builder.Configuration);
 

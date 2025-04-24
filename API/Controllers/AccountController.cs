@@ -36,6 +36,7 @@ public class AccountController(DataContext context,ITokenService tokenService):B
             Username=user.UserName,
             Token=tokenService.CreateToken(user)
         };
+        
     } 
 
     [HttpPost("login")]
