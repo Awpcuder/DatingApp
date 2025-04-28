@@ -20,6 +20,8 @@ public static class ApplicationServiceExtensions
         services.AddScoped<ITokenService, TokenService>();
         //You have an interface ITokenService and a class TokenService that implements it. You are telling .net that
         //Whenever someone asks for ITokenService, give them an instance of TokenService.
+        services.AddScoped<IUserRepository, UserRepository>();
+        services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
         return services;//Returns the modified services back to the pipeline.
 

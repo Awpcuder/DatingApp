@@ -19,23 +19,24 @@ public class AccountController(DataContext context,ITokenService tokenService):B
         {
             return BadRequest("UserName is taken. Please try a new one");
         }
-        using var hmac=new HMACSHA512();  //code to encript the password,this is callomg the hashalgorithm we are not injecting this class into our controller we are just using it in our method
+        return Ok();
+        // using var hmac=new HMACSHA512();  //code to encript the password,this is callomg the hashalgorithm we are not injecting this class into our controller we are just using it in our method
 
-        var user=new AppUser
-        {
-            UserName = registerDto.Username.ToLower(),
-            PasswordHash=hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
-            PasswordSalt=hmac.Key
-        };
+        // var user=new AppUser
+        // {
+        //     UserName = registerDto.Username.ToLower(),
+        //     PasswordHash=hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
+        //     PasswordSalt=hmac.Key
+        // };
         
-        context.Users.Add(user);
-        await context.SaveChangesAsync();
+        // context.Users.Add(user);
+        // await context.SaveChangesAsync();
 
-        return new UserDto
-        {
-            Username=user.UserName,
-            Token=tokenService.CreateToken(user)
-        };
+        // return new UserDto
+        // {
+        //     Username=user.UserName,
+        //     Token=tokenService.CreateToken(user)
+        // };
         
     } 
 
