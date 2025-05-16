@@ -77,7 +77,7 @@
               "buildTarget": "client:build:production"
             },
             "development": {
-              "buildTarget": "client:build:production"
+              "buildTarget": "client:build:development"
             }
           },
           "defaultConfiguration": "development"
