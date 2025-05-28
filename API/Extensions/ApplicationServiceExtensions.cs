@@ -1,5 +1,6 @@
 using System;
 using API.Data;
+using API.Helpers;
 using API.Interfaces;
 using API.Services;
 using Microsoft.EntityFrameworkCore;
@@ -21,7 +22,9 @@ public static class ApplicationServiceExtensions
         //You have an interface ITokenService and a class TokenService that implements it. You are telling .net that
         //Whenever someone asks for ITokenService, give them an instance of TokenService.
         services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<IPhotoService, PhotoService>();
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+        services.Configure<CloudinarySetttings>(config.GetSection("CloudinarySettings"));
 
         return services;//Returns the modified services back to the pipeline.
 
